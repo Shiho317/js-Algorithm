@@ -13,3 +13,20 @@ const bsort = (array) => {
   return array;
 }
 console.log(bsort(a))
+
+const b = [20, 10, 30, 60, 50, 90, 70, 40];
+
+const bbSort = (array) => {
+  let len = array.length;
+
+  for(let i = len; i > 0; i--){
+    for(let x = len; x > len - i; x--){
+      if(array[x] > array[x-1]){
+        [array[x], array[x-1]] = [array[x-1], array[x]];
+      }
+    }
+  }
+  return array;
+}
+
+console.log(bbSort(b))
