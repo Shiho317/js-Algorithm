@@ -61,7 +61,7 @@ const calc = (arr) => {
 console.log(calc([1,3,5,7]))
 
 
-//Find all duplicate numbers in an array with multiple duplicates
+////////////////////Find all duplicate numbers in an array with multiple duplicates
 
 const dupArr = [1,1,2,3,4,5,6,7,8,6,6,7,7,7,10,10];
 
@@ -84,3 +84,43 @@ const createArr = (arr) => {
 console.log(createArr(dupArr));
 
 //Remove all duplicates from an array of integers
+
+const firstArr = [1, 1, 1, 1, 1, 1, 1];
+
+const findDup = (arr) => {
+  let result = [];
+  let previous = [];
+  previous[0] = arr[0]
+
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] !== previous){
+      result.push(arr[i])
+    }
+    previous = arr[i]
+  }
+  return result
+}
+
+console.log(findDup(firstArr));
+
+
+//////////////////Find all pairs in an array of integers whose sum is equal to a given number
+
+let ar = [1,5,6,1,0,1];
+const findSumPairs = (arr, value) => {
+  let sumsLookup = {};
+  let output = [];
+  
+  for(let i = 0; i < arr.length; i++) {
+    let targetVal = value - arr[i];
+    
+    if(sumsLookup[targetVal]) {
+      output.push([arr[i], targetVal]);
+    }  
+    
+    sumsLookup[arr[i]] = true;
+  }
+  
+  return output;
+}
+console.log(findSumPairs(ar, 6));
