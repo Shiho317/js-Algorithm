@@ -111,19 +111,36 @@ console.log(createArr(dupArr))
 
 const firstArr = [1, 1, 1, 1, 1, 1, 1];
 
+// const findDup = (arr) => {
+//   let result = [];
+//   let previous = [];
+//   previous[0] = arr[0]
+
+//   for(let i = 0; i < arr.length; i++){
+//     if(arr[i] !== previous){
+//       result.push(arr[i])
+//     }
+//     previous = arr[i]
+//   }
+//   return result
+// }
+
+// console.log(findDup(firstArr));
+
 const findDup = (arr) => {
   let result = [];
-  let previous = [];
-  previous[0] = arr[0]
+
+  const dupNums = new Set();
 
   for(let i = 0; i < arr.length; i++){
-    if(arr[i] !== previous){
+    if(result.includes(arr[i])){
+      dupNums.add(arr[i])
+    }else{
       result.push(arr[i])
     }
-    previous = arr[i]
   }
-  return result
-}
+  return result;
+};
 
 console.log(findDup(firstArr));
 
@@ -131,20 +148,41 @@ console.log(findDup(firstArr));
 //////////////////Find all pairs in an array of integers whose sum is equal to a given number
 
 let ar = [1,5,6,1,0,1];
-const findSumPairs = (arr, value) => {
-  let sumsLookup = {};
-  let output = [];
+// const findSumPairs = (arr, value) => {
+//   let sumsLookup = {};
+//   let output = [];
   
-  for(let i = 0; i < arr.length; i++) {
-    let targetVal = value - arr[i];
+//   for(let i = 0; i < arr.length; i++) {
+//     let targetVal = value - arr[i];
     
-    if(sumsLookup[targetVal]) {
-      output.push([arr[i], targetVal]);
-    }  
+//     if(sumsLookup[targetVal]) {
+//       output.push([arr[i], targetVal]);
+//     }  
     
-    sumsLookup[arr[i]] = true;
+//     sumsLookup[arr[i]] = true;
+//   }
+  
+//   return output;
+// }
+
+const findSumPairs = (arr, num) => {
+
+  let pairs = [];
+
+  for(let i = 0; i < arr.length; i++){
+
+    const findNum = num - arr[i]
+
+    const numIndex = arr.indexOf(findNum)
+
+    console.log(numIndex)
+
+    if(numIndex >= 0){
+      pairs.push([arr[i], arr[numIndex]])
+    }
   }
-  
-  return output;
+
+  return pairs
 }
+
 console.log(findSumPairs(ar, 6));
