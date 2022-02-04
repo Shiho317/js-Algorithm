@@ -65,23 +65,47 @@ console.log(calc([1,3,5,7]))
 
 const dupArr = [1,1,2,3,4,5,6,7,8,6,6,7,7,7,10,10];
 
+// const createArr = (arr) => {
+//   let newDup = {}
+//   let newArr = []
+//   for(let i = 0; i < arr.length; i++){
+//     if(newDup[arr[i]]){
+//       if(newDup[arr[i]] === 1){
+//         newArr.push(arr[i])
+//       }
+//       newDup[arr[i]] = newDup[arr[i]] + 1
+//     }else{
+//       newDup[arr[i]] = 1;
+//     }
+//   }
+//   return newArr
+// }
+
+// console.log(createArr(dupArr));
+
 const createArr = (arr) => {
-  let newDup = {}
-  let newArr = []
-  for(let i = 0; i < arr.length; i++){
-    if(newDup[arr[i]]){
-      if(newDup[arr[i]] === 1){
-        newArr.push(arr[i])
-      }
-      newDup[arr[i]] = newDup[arr[i]] + 1
-    }else{
-      newDup[arr[i]] = 1;
+  let findArr = [];
+
+const Arr = new Set();
+
+for(let i = 0; i < arr.length; i++){
+  if(Arr.has(arr[i])){
+    if(!findArr.includes(arr[i])){
+      findArr.push(arr[i])
     }
+  }else{
+    Arr.add(arr[i])
   }
-  return newArr
+};
+
+return findArr
+
 }
 
-console.log(createArr(dupArr));
+console.log(createArr(dupArr))
+
+
+
 
 //Remove all duplicates from an array of integers
 
