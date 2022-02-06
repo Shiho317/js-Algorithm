@@ -175,8 +175,6 @@ const findSumPairs = (arr, num) => {
 
     const numIndex = arr.indexOf(findNum)
 
-    console.log(numIndex)
-
     if(numIndex >= 0){
       pairs.push([arr[i], arr[numIndex]])
     }
