@@ -114,3 +114,27 @@ const body = document.querySelector('body');
 
 // ele.addEventListener('click', clickFunc)
 
+
+//15
+
+// const ele = document.querySelector('.click');
+// const target = document.querySelector('.target');
+
+// const clickFunc = () => {
+//   target.style.display = 'none';
+// }
+
+// ele.addEventListener('click', clickFunc)
+
+
+//16
+
+// const ele = document.querySelector('.click');
+// const target = document.querySelector('.target');
+
+// const clickFunc = () => {
+//   target.style.display = 'unset';
+//   target.style.transition = 'all 0.3s ease'
+// }
+
+// ele.addEventListener('click', clickFunc)
